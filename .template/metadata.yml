@@ -1,0 +1,8 @@
+name: Spring boot
+rating: 5
+imageUrl: https://github.com/msa-ez/template-spring-boot-3/assets/123912988/a901ad8f-7548-42db-b4a4-67a34bfd9279
+description: Framework for rapidly and easily developing Java-based web applications.
+testModel: 12stmall-1117
+tags:
+  - Java
+  - Spring boot

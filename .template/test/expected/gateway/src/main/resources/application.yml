@@ -1,0 +1,76 @@
+server:
+  port: 8088
+
+---
+
+spring:
+  profiles: default
+  cloud:
+    gateway:
+#<<< API Gateway / Routes
+      routes:
+        - id: 주문
+          uri: http://localhost:8082
+          predicates:
+            - Path=/주문/**, 
+        - id: 배송
+          uri: http://localhost:8083
+          predicates:
+            - Path=/배송/**, 
+        - id: 상품
+          uri: http://localhost:8084
+          predicates:
+            - Path=/재고/**, 
+        - id: frontend
+          uri: http://localhost:8080
+          predicates:
+            - Path=/**
+#>>> API Gateway / Routes
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+
+---
+
+spring:
+  profiles: docker
+  cloud:
+    gateway:
+      routes:
+        - id: 주문
+          uri: http://주문:8080
+          predicates:
+            - Path=/주문/**, 
+        - id: 배송
+          uri: http://배송:8080
+          predicates:
+            - Path=/배송/**, 
+        - id: 상품
+          uri: http://상품:8080
+          predicates:
+            - Path=/재고/**, 
+        - id: frontend
+          uri: http://frontend:8080
+          predicates:
+            - Path=/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+server:
+  port: 8080
