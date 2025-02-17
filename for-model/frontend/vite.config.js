@@ -1,6 +1,6 @@
 forEach: Model
 fileName: vite.config.js
-path: for-model/frontend-materio
+path: for-model/frontend
 ---
 
 import vue from '@vitejs/plugin-vue'
