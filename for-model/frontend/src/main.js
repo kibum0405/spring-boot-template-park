@@ -1,7 +1,10 @@
  /*eslint-disable*/
-import Vue from "vue";
-import App from "./App.vue";
-import vuetify from "./plugins/vuetify";
+import { createApp } from 'vue';
+import App from './App.vue';
+import { createVuetify } from 'vuetify';
+import 'vuetify/styles';
+import { aliases, mdi } from 'vuetify/iconsets/mdi';
+import axios from 'axios';
 import Managing from "./components";
 import router from './router';
 {{#if (isSelectedSecurity options.rootModel.toppingPlatforms)}}
