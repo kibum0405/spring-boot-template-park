@@ -1,20 +1,16 @@
 path: frontend/src
 ---
 
-import Vue from 'vue'
-import Router from 'vue-router'
-
-Vue.use(Router);
-
+import { createRouter, createWebHistory } from 'vue-router';
 
 {{#boundedContexts}}
     {{#aggregates}}
         {{#if uiStyle.layout}}
-import {{boundedContext.namePascalCase}}{{namePascalCase}}Manager from "./components/listers/{{boundedContext.namePascalCase}}{{namePascalCase}}{{#layoutPascalCase uiStyle.layout}}{{/layoutPascalCase}}"
+import {{boundedContext.namePascalCase}}{{namePascalCase}}Manager from "./components/listers/{{boundedContext.namePascalCase}}{{namePascalCase}}{{#layoutPascalCase uiStyle.layout}}{{/layoutPascalCase}}.vue"
         {{else}}
-import {{boundedContext.namePascalCase}}{{namePascalCase}}Manager from "./components/listers/{{boundedContext.namePascalCase}}{{namePascalCase}}Cards"
+import {{boundedContext.namePascalCase}}{{namePascalCase}}Manager from "./components/listers/{{boundedContext.namePascalCase}}{{namePascalCase}}Cards.vue"
         {{/if}}
-import {{boundedContext.namePascalCase}}{{namePascalCase}}Detail from "./components/listers/{{boundedContext.namePascalCase}}{{namePascalCase}}Detail"
+import {{boundedContext.namePascalCase}}{{namePascalCase}}Detail from "./components/listers/{{boundedContext.namePascalCase}}{{namePascalCase}}Detail.vue"
     {{/aggregates}}
 
     {{#readModels}}
@@ -23,11 +19,8 @@ import {{namePascalCase}}ViewDetail from "./components/{{namePascalCase}}ViewDet
     {{/readModels}}
 {{/boundedContexts}}
 
-export default new Router({
-    // mode: 'history',
-    base: process.env.BASE_URL,
-    routes: [
-       {{#boundedContexts}}
+const routes = [
+    {{#boundedContexts}}
         {{#aggregates}}
             {
                 path: '/{{boundedContext.namePlural}}/{{namePlural}}',
@@ -53,11 +46,15 @@ export default new Router({
                 component: {{namePascalCase}}ViewDetail
             },
         {{/readModels}}
-       {{/boundedContexts}}
+    {{/boundedContexts}}
+];
 
+const router = createRouter({
+    history: createWebHistory(process.env.BASE_URL),
+    routes
+});
 
-    ]
-})
+export default router;
 
 <function>
     window.$HandleBars.registerHelper('layoutPascalCase', function (layout) {
