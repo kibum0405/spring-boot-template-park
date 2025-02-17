@@ -18,7 +18,7 @@ path: frontend/src/components/vo
 
         <v-card-text v-if="value">
             <div v-if="editMode">
-                <v-text-field label="{{#ifNotNull displayName namePascalCase}}{{/ifNotNull}}" v-model="value.imgName"/>
+                <v-text-field label="{{#ifNotNull displayName namePascalCase}}{{/ifNotNull}}" :value="value.imgName"/>
                 <slot name="actions"></slot>
             </div>
         </v-card-text>

@@ -5,7 +5,7 @@ path: frontend/src/components/listers
 <template>
     <div style="margin: 0 -15px 0 -15px;">
         <v-list two-line v-if="value.length > 0">
-            <v-list-group v-model="isExpansion">
+            <v-list-group :value="isExpansion">
                 <template v-slot:activator>
                     <v-list-item-content>
                         <v-list-item-title>{{namePascalCase}}</v-list-item-title>
@@ -40,7 +40,7 @@ path: frontend/src/components/listers
         </v-list>
 
         <{{namePascalCase}} v-if="editMode && tick" offline :isNew="true" :inList="true"
-                :editMode="editMode" v-model="newValue" @add="append">
+                :editMode="editMode" :value="newValue" @add="append">
             <template slot="actions">
                 <v-spacer></v-spacer>
                 <v-btn

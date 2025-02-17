@@ -5,19 +5,19 @@
         </v-card-title>
         <v-card-text v-if="value">
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field label="Country" v-model="value.country" />
+                <v-text-field label="Country" :value="value.country" />
             </div>
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field label="State" v-model="value.state" placeholder="OO도"/>
+                <v-text-field label="State" :value="value.state" placeholder="OO도"/>
             </div>
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field label="City" v-model="value.city"/>
+                <v-text-field label="City" :value="value.city"/>
             </div>
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field label="Street" v-model="value.street"/>
+                <v-text-field label="Street" :value="value.street"/>
             </div>
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field label="Zipcode" v-model="value.zipcode" />
+                <v-text-field label="Zipcode" :value="value.zipcode" />
             </div>
 
             <div v-if="!editMode">

@@ -44,7 +44,7 @@ fileName: SNSApp.vue
                 {{/if}}
             </v-app-bar>
 
-            <v-navigation-drawer app clipped flat v-model="sideBar">
+            <v-navigation-drawer app clipped flat :value="sideBar">
                 <v-list>
 		    {{#boundedContexts}}
     		    {{#aggregates}}

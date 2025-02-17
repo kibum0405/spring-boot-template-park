@@ -9,11 +9,11 @@ path: frontend/src/components
             {{../referenceClass}} : \{{ referenceValue ? referenceValue._links.self.href.split('/').pop() : '' }}
         </v-card-title>
 
-        <v-dialog v-model="pickerDialog">
+        <v-dialog :value="pickerDialog">
             <v-card>
                 <v-card-title>{{../referenceClass}}</v-card-title>
                 <v-card-text>
-                    <{{../referenceClass}}Picker v-model="value" @selected="pick"/>
+                    <{{../referenceClass}}Picker :value="value" @selected="pick"/>
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
@@ -34,16 +34,16 @@ path: frontend/src/components
         {{#fieldDescriptors}}
         {{#if (isNotId nameCamelCase)}}
         {{#if (isPrimitive className)}}
-            <{{getPrimitiveType className}} label="{{namePascalCase}}" v-model="value.{{nameCamelCase}}" :editMode="editMode"/>
+            <{{getPrimitiveType className}} label="{{namePascalCase}}" :value="value.{{nameCamelCase}}" :editMode="editMode"/>
         {{else}}
         {{#checkVO className}}
-            <{{className}} offline label="{{namePascalCase}}" v-model="value.{{nameCamelCase}}" :editMode="editMode" @change="change"/>
+            <{{className}} offline label="{{namePascalCase}}" :value="value.{{nameCamelCase}}" :editMode="editMode" @change="change"/>
         {{/checkVO}}
         {{#checkEntityMember className}}
-            <{{className}} offline label="{{namePascalCase}}" v-model="value.{{nameCamelCase}}" :editMode="editMode" @change="change"/>
+            <{{className}} offline label="{{namePascalCase}}" :value="value.{{nameCamelCase}}" :editMode="editMode" @change="change"/>
         {{/checkEntityMember}}
         {{#checkListOfEntityMember className}}
-            <{{getEntityClassNameOfList className}}List offline label="{{namePascalCase}}" v-model="value.{{nameCamelCase}}" :editMode="editMode" @change="change"/>
+            <{{getEntityClassNameOfList className}}List offline label="{{namePascalCase}}" :value="value.{{nameCamelCase}}" :editMode="editMode" @change="change"/>
         {{/checkListOfEntityMember}}
         {{/if}}
         {{/if}}
@@ -59,7 +59,7 @@ path: frontend/src/components
 
 <script>
     {{#referenceClass}}
-    const axios = require('axios').default;
+    import axios from "@axios";
     {{/referenceClass}}
 
     export default {

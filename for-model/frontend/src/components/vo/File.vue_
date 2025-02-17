@@ -8,7 +8,7 @@ path: frontend/src/components/vo
         </v-card-title>
         <v-card-text v-if="value">
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-file-input label="파일 입려" v-model="file" @change="change"/>
+                <v-file-input label="파일 입려" :value="file" @change="change"/>
             </div>
             <div v-else style="cursor: pointer;">
                 <div @click="download">

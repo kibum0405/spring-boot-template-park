@@ -8,19 +8,19 @@ path: frontend/src/components/vo
         </v-card-title>
         <v-card-text v-if="value">
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field label="주소" v-model="value.address"/>
+                <v-text-field label="주소" :value="value.address"/>
             </div>
             <div v-else>
                 주소 :  \{{value.address }}
             </div>
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field label="주제" v-model="value.subject"/>
+                <v-text-field label="주제" :value="value.subject"/>
             </div>
             <div v-else>
                 주제 :  \{{value.subject }}
             </div>
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field label="내용" v-model="value.content"/>
+                <v-text-field label="내용" :value="value.content"/>
             </div>
             <div v-else>
                 내용 :  \{{value.content }}

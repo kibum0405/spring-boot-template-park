@@ -2,20 +2,20 @@
     <div>
         <div v-if="editMode" style="margin-top:-20px;">
             <v-checkbox
-                    v-model="isFile"
+                    :value="isFile"
                     label="Attachment File"
             ></v-checkbox>
             <v-text-field
                     v-if="!isFile"
                     :label="label" 
                     :type="type"
-                    v-model="value"
+                    :value="value"
                     @change="change"
             ></v-text-field>
             <v-file-input
                     v-else
                     :label="label"
-                    v-model="file"
+                    :value="file"
                     @change="change"
             ></v-file-input>
         </div>

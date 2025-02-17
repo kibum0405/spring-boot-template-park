@@ -10,7 +10,7 @@ path: frontend/src/components
         <v-card-text>
             <div v-if="editMode" style="margin-top:-20px;">
                 <v-select
-                        v-model="newValue"
+                        :value="newValue"
                         :label="'name'"
                         :items="{{nameCamelCase}}List"
                 ></v-select>

@@ -14,7 +14,7 @@ path: frontend/src/components/listers
         <v-col style="margin-bottom:40px;">
             <div class="text-center">
                 <v-dialog
-                        v-model="openDialog"
+                        :value="openDialog"
                         width="332.5"
                         fullscreen
                         hide-overlay
@@ -35,7 +35,7 @@ path: frontend/src/components/listers
                         </v-fab-transition>
                     </template>
 
-                    <{{boundedContext.namePascalCase}}{{namePascalCase}} :offline="offline"  :isNew="true" :editMode="true" v-model="newValue" @add="append" v-if="tick"/>
+                    <{{boundedContext.namePascalCase}}{{namePascalCase}} :offline="offline"  :isNew="true" :editMode="true" :value="newValue" @add="append" v-if="tick"/>
                 
                     <v-btn
                         class="gs-close-btn"
@@ -53,7 +53,7 @@ path: frontend/src/components/listers
 </template>
 
 <script>
-    const axios = require('axios').default;
+    import axios from "@axios";
     import {{boundedContext.namePascalCase}}{{namePascalCase}} from './../{{boundedContext.namePascalCase}}{{namePascalCase}}.vue';
 
     export default {

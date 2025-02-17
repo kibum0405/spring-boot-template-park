@@ -1,12 +1,15 @@
 const Managing = {
   install(Vue = {}) {
-    const files = require.context(".", true, /\.vue$/);
+    // import.meta.glob을 사용하여 모든 .vue 파일을 가져옵니다.
+    const files = import.meta.glob("./**/*.vue", { eager: true });
     const components = {};
-    files.keys().forEach(key => {
+
+    Object.keys(files).forEach(key => {
       if (key === "./index.js") {
         return;
       }
-      components[key.replace(/(\.\/|\.vue)/g, "")] = files(key);
+      const componentName = key.replace(/(\.\/|\.vue)/g, "");
+      components[componentName] = files[key];
     });
 
     if (Vue._components == null) Vue._components = {};

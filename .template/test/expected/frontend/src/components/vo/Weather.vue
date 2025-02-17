@@ -9,16 +9,16 @@
 
         <v-card-text v-if="value">
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field type="number" label="Degree" v-model="value.degree"/>
+                <v-text-field type="number" label="Degree" :value="value.degree"/>
             </div>
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field type="number" label="Precipitation" v-model="value.precipitation"/>
+                <v-text-field type="number" label="Precipitation" :value="value.precipitation"/>
             </div>
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field type="number" label="Humidity" v-model="value.humidity"/>
+                <v-text-field type="number" label="Humidity" :value="value.humidity"/>
             </div>
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field type="number" label="Wind" v-model="value.wind"/>
+                <v-text-field type="number" label="Wind" :value="value.wind"/>
             </div>
             <v-card
                 v-if="!editMode"

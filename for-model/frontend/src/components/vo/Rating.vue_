@@ -8,10 +8,10 @@ path: frontend/src/components/vo
         </v-card-title>
         <v-card-text v-if="value">
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field type="number" label="Rate" v-model="value.rate" placeholder="1~5"/>
+                <v-text-field type="number" label="Rate" :value="value.rate" placeholder="1~5"/>
             </div>
             <div v-if="!editMode">
-                <v-rating color="warning" readonly v-model="value.rate"></v-rating>
+                <v-rating color="warning" readonly :value="value.rate"></v-rating>
             </div>
         </v-card-text>
     </div>

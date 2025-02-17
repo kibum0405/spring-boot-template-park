@@ -24,19 +24,19 @@ path: frontend/src/components
         {{#if (isNotId nameCamelCase)}}
         {{#if (isPrimitive className)}}
             {{#if isKey}}
-            <{{getPrimitiveType className}} v-if="editMode" label="{{#ifNotNull displayName namePascalCase}}{{/ifNotNull}}" v-model="value.{{nameCamelCase}}" :editMode="editMode" :inputUI="'{{inputUI}}'"/>
+            <{{getPrimitiveType className}} v-if="editMode" label="{{#ifNotNull displayName namePascalCase}}{{/ifNotNull}}" :value="value.{{nameCamelCase}}" :editMode="editMode" :inputUI="'{{inputUI}}'"/>
             {{else}}
-            <{{getPrimitiveType className}} label="{{#ifNotNull displayName namePascalCase}}{{/ifNotNull}}" v-model="value.{{nameCamelCase}}" :editMode="editMode" :inputUI="'{{inputUI}}'"/>
+            <{{getPrimitiveType className}} label="{{#ifNotNull displayName namePascalCase}}{{/ifNotNull}}" :value="value.{{nameCamelCase}}" :editMode="editMode" :inputUI="'{{inputUI}}'"/>
             {{/if}}
         {{else}}
             {{#checkVO className}}
-            <{{className}} offline label="{{#ifNotNull displayName namePascalCase}}{{/ifNotNull}}" v-model="value.{{nameCamelCase}}" :editMode="editMode" @change="change"/>
+            <{{className}} offline label="{{#ifNotNull displayName namePascalCase}}{{/ifNotNull}}" :value="value.{{nameCamelCase}}" :editMode="editMode" @change="change"/>
             {{/checkVO}}
             {{#checkMember className}}
-            <{{className}} offline label="{{#ifNotNull displayName namePascalCase}}{{/ifNotNull}}" v-model="value.{{nameCamelCase}}" :editMode="editMode" @change="change"/>
+            <{{className}} offline label="{{#ifNotNull displayName namePascalCase}}{{/ifNotNull}}" :value="value.{{nameCamelCase}}" :editMode="editMode" @change="change"/>
             {{/checkMember}}
             {{#checkListOfEntityMember className}}
-            <{{getEntityClassNameOfList name ../aggregateRoot}}Manager offline label="{{#ifNotNull displayName namePascalCase}}{{/ifNotNull}}" v-model="value.{{nameCamelCase}}" :editMode="editMode" @change="change"/>
+            <{{getEntityClassNameOfList name ../aggregateRoot}}Manager offline label="{{#ifNotNull displayName namePascalCase}}{{/ifNotNull}}" :value="value.{{nameCamelCase}}" :editMode="editMode" @change="change"/>
             {{/checkListOfEntityMember}}
         {{/if}}
         {{/if}}
@@ -115,7 +115,7 @@ path: frontend/src/components
                 {{namePascalCase}}
             </v-btn>
             {{#if (checkParam fieldDescriptors)}}
-            <v-dialog v-model="{{nameCamelCase}}Diagram" width="500">
+            <v-dialog :value="{{nameCamelCase}}Diagram" width="500">
                 <{{namePascalCase}}Command
                     @closeDialog="close{{namePascalCase}}"
                     @{{nameCamelCase}}="{{nameCamelCase}}"
@@ -140,7 +140,7 @@ path: frontend/src/components
                 {{namePascalCase}}
             </v-btn>
             {{#if (checkParam fieldDescriptors)}}
-            <v-dialog v-model="{{nameCamelCase}}Diagram" width="500">
+            <v-dialog :value="{{nameCamelCase}}Diagram" width="500">
                 <{{namePascalCase}}Command
                     @closeDialog="close{{namePascalCase}}"
                     @{{nameCamelCase}}="{{nameCamelCase}}"
@@ -153,7 +153,7 @@ path: frontend/src/components
         </v-card-actions>
 
         <v-snackbar
-            v-model="snackbar.status"
+            :value="snackbar.status"
             :top="true"
             :timeout="snackbar.timeout"
             color="error"
@@ -168,7 +168,7 @@ path: frontend/src/components
 </template>
 
 <script>
-    const axios = require('axios').default;
+    import axios from "@axios";
 
     {{#aggregateRoot.fieldDescriptors}}
     {{#if (isNotId nameCamelCase)}}

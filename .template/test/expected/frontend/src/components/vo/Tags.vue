@@ -5,14 +5,14 @@
         </v-card-title>
         <vue-tags-input
             style="margin-left: 15px;"
-            v-model="tag"
+            :value="tag"
             :tags="copyTags"
             :autocomplete-items="filteredItems"
             @tags-changed="newTags => copyTags = newTags"
         />
         <v-chip
         style="background-color: #5C6BC0; color: #fff; border-radius: 2px; padding: 3px 5px; margin: 2px; font-size: .85em; height:30px;"
-        v-model="value.tag"
+        :value="value.tag"
         v-for="(tag, index) in value.tag" :key="index"
         >
             {{ tag }}
@@ -22,7 +22,7 @@
     <div v-else>
         <v-chip
         style="background-color: #5C6BC0; color: #fff; border-radius: 2px; padding: 3px 5px; margin: 2px; font-size: .85em; height:30px;"
-        v-model="value.tag"
+        :value="value.tag"
         v-for="(tag, index) in value.tag" :key="index"
         >
             {{ tag }}

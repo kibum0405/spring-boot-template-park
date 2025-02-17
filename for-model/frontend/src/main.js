@@ -10,8 +10,16 @@ import Keycloak from 'keycloak-js';
 Vue.config.productionTip = false;
 require('./GlobalStyle.css');
 
-const axios = require("axios").default;
 
+const vuetify = createVuetify({
+  icons: {
+      defaultSet: 'mdi',
+      aliases,
+      sets: {
+          mdi,
+      },
+  },
+});
 // backend host url
 axios.backend = null; //"http://localhost:8088";
 
@@ -36,16 +44,16 @@ axios.fixUrl = function(original){
   return url.href;
 }
 
-const templateFiles = require.context("./components", true);
-Vue.prototype.$ManagerLists = [];
-templateFiles.keys().forEach(function(tempFiles) {
+const templateFiles = import.meta.glob("./components/**/*.vue");
+const app = createApp(App);
+app.config.globalProperties.$ManagerLists = [];
+Object.keys(templateFiles).forEach(function(tempFiles) {
   if (!tempFiles.includes("Manager.vue") && tempFiles.includes("vue")) {
-    Vue.prototype.$ManagerLists.push(
-      tempFiles.replace("./", "").replace(".vue", "")
+    app.config.globalProperties.$ManagerLists.push(
+      tempFiles.replace("./components/", "").replace(".vue", "")
     );
   }
 });
-Vue.use(Managing);
 const pluralCaseList = []
 
 {{#boundedContexts}}
@@ -58,14 +66,14 @@ pluralCaseList.push( {plural: "{{namePlural}}", pascal: "{{namePascalCase}}"} )
     {{/viewes}}
 {{/boundedContexts}}
 
-Vue.prototype.$ManagerLists.forEach(function(item, idx) {
+app.config.globalProperties.$ManagerLists.forEach(function(item, idx) {
   pluralCaseList.forEach(function(tmp) {
     if(item.toLowerCase() == tmp.pascal.toLowerCase()) {
       var obj = {
         name: item,
         plural: tmp.plural
       }
-      Vue.prototype.$ManagerLists[idx] = obj
+      app.config.globalProperties.$ManagerLists[idx] = obj
     }
   })
 })
@@ -135,11 +143,9 @@ function errorRefresh() {
   console.error('Failed to refresh token');
 }
 {{else}}
-new Vue({
-  vuetify,
-  router,
-  render: h => h(App)
-}).$mount("#app");
+app.use(router);
+app.use(vuetify);
+app.mount('#app');
 {{/if}}
 
 <function>

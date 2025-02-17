@@ -39,7 +39,7 @@
                                 <v-list-item-subtitle v-else-if="editCommentMode && selectedComment === comment" style="font-weight:500; padding:0px;">
                                     <v-row>
                                         <v-col cols="10">
-                                            <v-text-field v-model="inputComment" outlined solo></v-text-field>
+                                            <v-text-field :value="inputComment" outlined solo></v-text-field>
                                         </v-col>
                                         <v-col cols="2">
                                             <v-icon @click="saveComment(inputComment, index)" style="font-size: 20px; margin-right: 10px;">mdi-content-save</v-icon>
@@ -50,7 +50,7 @@
                         </v-col>
                     </v-list-item>
                     <div v-if="!editCommentMode" style="display: flex; align-items: center;">
-                        <v-text-field v-model="inputComment" solo class="comment-box" @keydown.enter="addComment(inputComment)"></v-text-field>
+                        <v-text-field :value="inputComment" solo class="comment-box" @keydown.enter="addComment(inputComment)"></v-text-field>
                     </div>
                 </v-col>
             </v-row>

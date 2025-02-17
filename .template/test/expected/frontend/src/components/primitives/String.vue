@@ -3,12 +3,12 @@
         <div v-if="editMode" style="margin-top:-20px;">
             <v-textarea v-if="multiLine"
                     :label="label" 
-                    v-model="value"
+                    :value="value"
                     @change="change"
             />
             <v-text-field v-else
                     :label="label" 
-                    v-model="value"
+                    :value="value"
                     @change="change"
             />
         </div>

@@ -32,7 +32,7 @@
 
             </v-app-bar>
 
-            <v-navigation-drawer app clipped flat v-model="sideBar">
+            <v-navigation-drawer app clipped flat :value="sideBar">
                 <v-list>
                     <v-list-item
                         class="px-2"

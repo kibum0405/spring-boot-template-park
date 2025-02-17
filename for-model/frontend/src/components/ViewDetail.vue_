@@ -14,17 +14,17 @@ path: frontend/src/components
         {{#if (isNotId nameCamelCase)}}
         {{#if (isPrimitive className)}}
             <div>
-                <{{getPrimitiveType className}} label="{{namePascalCase}}" v-model="item.{{nameCamelCase}}" :editMode="editMode" @change="change" />
+                <{{getPrimitiveType className}} label="{{namePascalCase}}" :value="item.{{nameCamelCase}}" :editMode="editMode" @change="change" />
             </div>
         {{else}}
             {{#checkVO className}}
-            <{{className}} offline label="{{namePascalCase}}" v-model="item.{{nameCamelCase}}" :editMode="false" @change="change" />
+            <{{className}} offline label="{{namePascalCase}}" :value="item.{{nameCamelCase}}" :editMode="false" @change="change" />
             {{/checkVO}}
             {{#checkEntityMember className}}
-            <{{className}} offline label="{{namePascalCase}}" v-model="item.{{nameCamelCase}}" :editMode="false" :key="false" @change="change" />
+            <{{className}} offline label="{{namePascalCase}}" :value="item.{{nameCamelCase}}" :editMode="false" :key="false" @change="change" />
             {{/checkEntityMember}}
             {{#checkListOfEntityMember className}}
-            <{{getEntityClassNameOfList className}}List offline label="{{namePascalCase}}" v-model="item.{{nameCamelCase}}" :editMode="false" @change="change" />
+            <{{getEntityClassNameOfList className}}List offline label="{{namePascalCase}}" :value="item.{{nameCamelCase}}" :editMode="false" @change="change" />
             {{/checkListOfEntityMember}}
         {{/if}}
         {{/if}}
@@ -35,7 +35,7 @@ path: frontend/src/components
 </template>
 
 <script>
-  const axios = require('axios').default;
+  import axios from "@axios";
 
   export default {
     name: '{{namePascalCase}}ViewDetail',

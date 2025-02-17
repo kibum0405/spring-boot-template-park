@@ -15,7 +15,7 @@
 
         <v-card-text v-if="value">
             <div v-if="editMode">
-                <v-text-field label="" v-model="value.imgName"/>
+                <v-text-field label="" :value="value.imgName"/>
                 <slot name="actions"></slot>
             </div>
         </v-card-text>

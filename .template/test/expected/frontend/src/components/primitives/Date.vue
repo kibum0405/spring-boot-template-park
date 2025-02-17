@@ -3,7 +3,7 @@
         <div v-if="editMode">
             <v-menu
                 ref="menu"
-                v-model="menu"
+                :value="menu"
                 :close-on-content-click="false"
                 :return-value.sync="date"
                 transition="scale-transition"
@@ -12,7 +12,7 @@
             >
                 <template v-slot:activator="{ on, attrs }">
                     <v-text-field
-                            v-model="date"
+                            :value="date"
                             :label="label"
                             prepend-icon="mdi-calendar"
                             readonly
@@ -21,7 +21,7 @@
                     ></v-text-field>
                 </template>
                 <v-date-picker
-                        v-model="date"
+                        :value="date"
                         no-title
                         scrollable
                 >

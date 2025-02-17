@@ -2,7 +2,7 @@
     <div>
         <div v-if="editMode" style="margin-top:-20px;">
             <v-radio-group 
-                    v-model="value" 
+                    :value="value" 
                     row
                     @change="change">
                 <template v-slot:label>

@@ -5,13 +5,13 @@
         </v-card-title>
         <v-card-text v-if="value">
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field label="PaymentType" v-model="value.paymentType"/>
+                <v-text-field label="PaymentType" :value="value.paymentType"/>
             </div>
             <div v-else>
                 PaymentType :  {{value.paymentType }}
             </div>
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field type="number" label="Amount" v-model="value.amount"/>
+                <v-text-field type="number" label="Amount" :value="value.amount"/>
             </div>
             <div v-else>
                 Amount :  {{value.amount }}

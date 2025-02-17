@@ -30,22 +30,22 @@
 
         <v-card-text v-if="value">
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field label="아이디" v-model="value.userId"/>
+                <v-text-field label="아이디" :value="value.userId"/>
             </div>
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field label="비밀번호" v-model="value.password"/>
+                <v-text-field label="비밀번호" :value="value.password"/>
             </div>
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field label="이름" v-model="value.name"/>
+                <v-text-field label="이름" :value="value.name"/>
             </div>
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field label="이메일" v-model="value.email"/>
+                <v-text-field label="이메일" :value="value.email"/>
             </div>
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field label="주소" v-model="value.address"/>
+                <v-text-field label="주소" :value="value.address"/>
             </div>
             <div v-if="editMode" style="margin-top:-20px;">
-                <v-text-field label="휴대폰" v-model="value.phone"/>
+                <v-text-field label="휴대폰" :value="value.phone"/>
             </div>
             <div v-if="!editMode">
                 <v-card
