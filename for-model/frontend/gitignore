@@ -25,3 +25,6 @@ pnpm-debug.log*
 *.sw?
 package-lock.json
 
+# vite.config.js
+# 기타 무시할 파일들...
+
