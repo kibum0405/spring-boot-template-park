@@ -1,3 +1,8 @@
+forEach: Model
+fileName: vite.config.js
+path: for-model/frontend-materio
+---
+
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
