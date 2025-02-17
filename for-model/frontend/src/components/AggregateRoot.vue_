@@ -115,7 +115,7 @@ path: frontend/src/components
                 {{namePascalCase}}
             </v-btn>
             {{#if (checkParam fieldDescriptors)}}
-            <v-dialog :value="{{nameCamelCase}}Diagram" width="500">
+            <v-dialog v-model="{{nameCamelCase}}Diagram" width="500">
                 <{{namePascalCase}}Command
                     @closeDialog="close{{namePascalCase}}"
                     @{{nameCamelCase}}="{{nameCamelCase}}"
@@ -140,7 +140,7 @@ path: frontend/src/components
                 {{namePascalCase}}
             </v-btn>
             {{#if (checkParam fieldDescriptors)}}
-            <v-dialog :value="{{nameCamelCase}}Diagram" width="500">
+            <v-dialog v-model="{{nameCamelCase}}Diagram" width="500">
                 <{{namePascalCase}}Command
                     @closeDialog="close{{namePascalCase}}"
                     @{{nameCamelCase}}="{{nameCamelCase}}"

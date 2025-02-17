@@ -9,7 +9,7 @@ path: frontend/src/components
             {{../referenceClass}} : \{{ referenceValue ? referenceValue._links.self.href.split('/').pop() : '' }}
         </v-card-title>
 
-        <v-dialog :value="pickerDialog">
+        <v-dialog v-model="pickerDialog">
             <v-card>
                 <v-card-title>{{../referenceClass}}</v-card-title>
                 <v-card-text>

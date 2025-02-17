@@ -9,7 +9,7 @@ path: frontend/src/components
             {{../referenceClass}} : \{{ referenceValue ? referenceValue.name : '' }}
         </v-card-title>
 
-        <v-dialog :value="pickerDialog">
+        <v-dialog v-model="pickerDialog">
             <v-card>
                 <v-card-title>{{../referenceClass}}</v-card-title>
                 <v-card-text>
@@ -114,7 +114,7 @@ path: frontend/src/components
                 {{name}}
             </v-btn>
             {{#if (checkParam fieldDescriptors)}}
-            <v-dialog :value="{{name}}Diagram" width="500">
+            <v-dialog v-model="{{name}}Diagram" width="500">
                 <{{name}}Command
                         @closeDialog="close{{name}}"
                         @{{name}}="{{name}}"
@@ -137,7 +137,7 @@ path: frontend/src/components
                 {{name}}
             </v-btn>
             {{#if (checkParam fieldDescriptors)}}
-            <v-dialog :value="{{name}}Diagram" width="500">
+            <v-dialog v-model="{{name}}Diagram" width="500">
                 <{{name}}Command
                         @closeDialog="close{{name}}"
                         @{{name}}="{{name}}"

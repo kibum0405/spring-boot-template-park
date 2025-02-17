@@ -9,7 +9,7 @@ fileName: App.vue
 </template>
 
 <script>
-import SNSApp from './SNSApp.vue'
+import { VApp, VMain } from 'vuetify/components'
 
 export default {
 
@@ -31,18 +31,18 @@ export default {
     }),
     
     async created() {
-      var path = document.location.href.split("#/")
-      this.urlPath = path[1];
+        var path = document.location.href.split("#/")
+        this.urlPath = path[1];
 
-      {{#if (isSelectedSecurity options.rootModel.toppingPlatforms)}}
-      var me = this
-      me.username = me.$OAuth.idTokenParsed.preferred_username
+        {{#if (isSelectedSecurity options.rootModel.toppingPlatforms)}}
+        var me = this
+        me.username = me.$OAuth.idTokenParsed.preferred_username
 
-      if(!me.username){
-          location.reload()
-      }
-      {{else}}
-      {{/if}}
+        if(!me.username){
+            location.reload()
+        }
+        {{else}}
+        {{/if}}
     },
 
     mounted() {
