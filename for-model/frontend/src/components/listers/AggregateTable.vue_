@@ -53,7 +53,7 @@ path: frontend/src/components/listers
 </template>
 
 <script>
-    import axios from "@axios";
+    import axios from 'axios';
     import {{boundedContext.namePascalCase}}{{namePascalCase}} from './../{{boundedContext.namePascalCase}}{{namePascalCase}}.vue';
 
     export default {

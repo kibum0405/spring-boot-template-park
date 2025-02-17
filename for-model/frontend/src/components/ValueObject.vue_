@@ -59,7 +59,7 @@ path: frontend/src/components
 
 <script>
     {{#referenceClass}}
-    import axios from "@axios";
+    import axios from 'axios';
     {{/referenceClass}}
 
     export default {

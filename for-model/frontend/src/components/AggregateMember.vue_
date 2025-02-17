@@ -197,11 +197,11 @@ path: frontend/src/components
 
 <script>
     {{#referenceClass}}
-    import axios from "@axios";
+    import axios from 'axios';
     {{/referenceClass}}
     {{^referenceClass}}
     {{#each relations}}{{#if (isGeneralization sourceElement.namePascalCase ../namePascalCase relationType)}}
-    import axios from "@axios";
+    import axios from 'axios';
     {{/if}}{{/each}}
     {{/referenceClass}}
 
