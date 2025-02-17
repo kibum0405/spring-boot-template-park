@@ -1,7 +1,5 @@
-import Vue from 'vue';
-import Vuetify from 'vuetify/lib/framework';
-
-Vue.use(Vuetify);
+import { createVuetify } from 'vuetify';
+import 'vuetify/styles';
 
 const themeColors = {
     surface:'{{options.rootModel.uiStyle.palette.colors.surface.colorCode}}',
@@ -37,7 +35,7 @@ Object.keys(themeColors).forEach(key => {
     }
 });
 
-export default new Vuetify({
+export default createVuetify({
     theme: {
         light: true,
         themes: {

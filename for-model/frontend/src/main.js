@@ -1,9 +1,7 @@
  /*eslint-disable*/
 import { createApp } from 'vue';
 import App from './App.vue';
-import { createVuetify } from 'vuetify';
-import 'vuetify/styles';
-import { aliases, mdi } from 'vuetify/iconsets/mdi';
+import vuetify from './plugins/vuetify'; // Vuetify 플러그인 경로
 import axios from 'axios';
 import Managing from "./components";
 import router from './router';
@@ -11,18 +9,8 @@ import router from './router';
 import Keycloak from 'keycloak-js';
 {{/if}}
 Vue.config.productionTip = false;
-require('./GlobalStyle.css');
+import './GlobalStyle.css';
 
-
-const vuetify = createVuetify({
-  icons: {
-      defaultSet: 'mdi',
-      aliases,
-      sets: {
-          mdi,
-      },
-  },
-});
 // backend host url
 axios.backend = null; //"http://localhost:8088";
 

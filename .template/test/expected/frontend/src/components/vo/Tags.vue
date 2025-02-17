@@ -3,7 +3,7 @@
         <v-card-title>
             {{label}}
         </v-card-title>
-        <vue-tags-input
+        <Vue3TagsInput
             style="margin-left: 15px;"
             :value="tag"
             :tags="copyTags"
@@ -31,12 +31,12 @@
 </template>
 
 <script>
-import VueTagsInput from '@johmun/vue-tags-input';
+import Vue3TagsInput from 'vue3-tags-input';
 
 export default {
     name: "Tags",
     components: {
-        VueTagsInput,
+        Vue3TagsInput,
     },
     data() {
         return {

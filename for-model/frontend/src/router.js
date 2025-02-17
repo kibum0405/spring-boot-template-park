@@ -1,7 +1,7 @@
 path: frontend/src
 ---
-
 import { createRouter, createWebHistory } from 'vue-router';
+import SNSApp from './SNSApp.vue';
 
 {{#boundedContexts}}
     {{#aggregates}}
@@ -20,6 +20,11 @@ import {{namePascalCase}}ViewDetail from "./components/{{namePascalCase}}ViewDet
 {{/boundedContexts}}
 
 const routes = [
+            {
+                path: '/',
+                name: 'SNSApp',
+                component: SNSApp
+            },
     {{#boundedContexts}}
         {{#aggregates}}
             {
